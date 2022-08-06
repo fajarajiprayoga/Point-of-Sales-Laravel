@@ -25,7 +25,7 @@ class CategoryController extends Controller
         return datatables()
             ->of($category)
             ->addIndexColumn()
-            ->addColumn('action', function ($category) {
+            ->editColumn('action', function ($category) {
                 return '
                     <button class="btn btn-xs btn-info btn-flat" onclick="editForm(`' . route('category.update', $category->id_category) . '`)"> <i class="fa fa-edit"></i> </button>
                     <button class="btn btn-xs btn-danger btn-flat" onclick="deleteData(`' . route('category.destroy', $category->id_category) . '`)"> <i class="fa fa-trash"></i> </button>

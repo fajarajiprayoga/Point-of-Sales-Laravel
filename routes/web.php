@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DebugController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/member', MemberController::class);
     Route::post('/member/delete-selected', [MemberController::class, 'deleteselected'])->name('member.deleteselected');
     Route::post('/member/cetak-member', [MemberController::class, 'cetakmember'])->name('member.cetakmember');
+
+    Route::get('/supplier/data', [SupplierController::class, 'data'])->name('supplier.data');
+    Route::resource('/supplier', SupplierController::class);
 });
 
 Route::get('/countproduct', [DebugController::class, 'countproduct'])->name('countproduct');

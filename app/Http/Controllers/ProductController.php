@@ -108,7 +108,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product_last = Product::latest()->first();
-        // $request['id_product'] = "P-" . tambah_nol_didepan($product->id, 5);
 
         $product = new Product();
         if ($product_last == null) {
