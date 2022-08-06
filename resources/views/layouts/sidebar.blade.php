@@ -68,7 +68,7 @@
           </li>
           <li class="nav-header">TRANSAKSI</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('pengeluaran.index') }}" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
               <p>Pengeluaran</p>
             </a>
