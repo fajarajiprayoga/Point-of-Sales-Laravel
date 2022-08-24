@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BuyyingController;
+use App\Http\Controllers\BuyyingDetailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DebugController;
@@ -50,6 +52,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/pengeluaran/data', [PengeluaranController::class, 'data'])->name('pengeluaran.data');
     Route::resource('/pengeluaran', PengeluaranController::class);
+
+    Route::get('/buyying/{id}/create', [BuyyingController::class, 'create'])->name('buyying.create');
+    Route::get('/buyying/showdata', [BuyyingController::class, 'showdata'])->name('buyying.showdata');
+    Route::get('/buyying/{id}/detail', [BuyyingController::class, 'detail'])->name('buyying.detail');
+    Route::resource('/buyying', BuyyingController::class)->except('create');
+
+    Route::resource('/buyying_detail', BuyyingDetailController::class)->except('create', 'show', 'edit');
+    // Route::resource('/buyying_detail', BuyyingDetailController::class);
+    Route::get('/buyying_detail/{id}/data', [BuyyingDetailController::class, 'data'])->name('buyying_detail.data');
+    Route::get('/buyying_detail/{id}/gettotal', [BuyyingDetailController::class, 'gettotal'])->name('buyying_detail.gettotal');
 });
 
 Route::get('/countproduct', [DebugController::class, 'countproduct'])->name('countproduct');

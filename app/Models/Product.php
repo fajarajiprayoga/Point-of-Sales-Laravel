@@ -13,7 +13,7 @@ class Product extends Model
     protected $primaryKey = 'id_product';
     protected $guarded = [];
 
-    public function product()
+    public function category()
     {
         return $this->hasOne(Category::class, 'id_category', 'id_category');
     }

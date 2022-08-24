@@ -51,7 +51,7 @@
                 url: '{{route('category.data')}}'
             },
             columns: [
-                {data: "id_category"},
+                {data: "DT_RowIndex"},
                 {data: "category_name"},
                 {data: "action", searchable: false, sortable: false}
             ]

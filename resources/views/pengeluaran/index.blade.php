@@ -22,6 +22,7 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                         <th width='5%'>No</th>
+                        <th width="18%">Tanggal</th>
                         <th>Description</th>
                         <th>Nominal</th>
                         <th width='15%'><i class="fa fa-cog"></i></th>
@@ -52,6 +53,7 @@
                 },
                 columns: [
                     {data: 'DT_RowIndex'},
+                    {data: 'created_at'},
                     {data: 'description'},
                     {data: 'nominal'},
                     {data: 'action'}

@@ -74,7 +74,7 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('buyying.index')}}" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
               <p>Pembelian</p>
             </a>

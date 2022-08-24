@@ -34,6 +34,8 @@
 
   {{-- Data Table v1.12 --}}
   <script src="{{asset('/new_js/v112jquery.dataTables.min.css')}}"></script>
+
+  @stack('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

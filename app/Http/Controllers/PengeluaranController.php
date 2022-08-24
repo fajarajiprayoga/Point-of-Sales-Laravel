@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class PengeluaranController extends Controller
 {
@@ -24,6 +25,9 @@ class PengeluaranController extends Controller
         return datatables()
             ->of($pengeluarans)
             ->addIndexColumn()
+            ->editColumn('created_at', function ($pengeluarans) {
+                return tanggal_indonesia($pengeluarans->created_at, false);
+            })
             ->editColumn('nominal', function ($pengeluarans) {
                 return format_uang($pengeluarans->nominal);
             })
