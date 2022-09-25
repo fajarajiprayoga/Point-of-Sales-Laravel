@@ -80,21 +80,15 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('transaction.list')}}" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
               <p>Penjualan</p>
             </a>
           </li> 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('transaction.index')}}" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
-              <p>Transaksi Lama</p>
-            </a>
-          </li> 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Transaksi Baru</p>
+              <p>Penjualan Aktif</p>
             </a>
           </li> 
           <li class="nav-header">REPORT</li>
