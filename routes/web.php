@@ -4,7 +4,9 @@ use App\Http\Controllers\BuyyingController;
 use App\Http\Controllers\BuyyingDetailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebugController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ProductController;
@@ -26,17 +28,19 @@ use App\Models\Selling;
 
 Route::get('/', fn () => redirect()->route('login'));
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('welcome');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('welcome');
+//     })->name('dashboard');
+// });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/category/data', [CategoryController::class, 'data'])->name(('category.data'));
     Route::resource('/category', CategoryController::class);
 
@@ -72,10 +76,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/transaction/list', [SellingController::class, 'index'])->name('transaction.list');
     Route::get('/transaction/data', [SellingController::class, 'data'])->name(('transactionlist.data'));
     Route::get('/transaction/cetak-nota', [SellingController::class, 'cetakNota'])->name(('transaction.cetakNota'));
-    
     Route::get('/transaction/{id}/data', [SellingDetailController::class, 'data'])->name('transaction.data');
     Route::get('/transaction/{id}/gettotal', [SellingDetailController::class, 'gettotal'])->name('transaction.gettotal');
     Route::resource('/transaction', SellingDetailController::class);
+
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/refresh', [LaporanController::class, 'refresh'])->name('laporan.refresh');
+    Route::get('/laporan/data/{awal}/{akhir}', [LaporanController::class, 'data'])->name('laporan.data');
+    Route::get('/laporan/pdf/{awal}/{akhir}', [LaporanController::class, 'exportPDF'])->name('laporan.exportPDF');
 });
 
 Route::get('/countproduct', [DebugController::class, 'countproduct'])->name('countproduct');

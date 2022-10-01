@@ -51,7 +51,7 @@
         <p style="float: right;">{{ strtoupper(auth()->user()->name) }} </p>
     </div>
     <div class="clear-bot" style="clear: both"></div>
-    <p>No: {{tambah_nol_didepan($selling->id_selling, 10)}}</p>
+    <p>No: {{tambah_nol_didepan($selling->id_selling, 6)}}</p>
     <p class="text-center">=============================</p>
 
     <table width="100%" style="border: 0;">

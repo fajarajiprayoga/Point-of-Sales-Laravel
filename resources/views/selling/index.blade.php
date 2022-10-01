@@ -48,14 +48,13 @@ Daftar Transaksi Penjualan
                     <table class="table table-stripped table-bordered">
                         <thead>
                             <th width="5%">No.</th>
-                            <th width="18%">Tanggal</th>
-                            <th>Id</th>
-                            <th>Jumlah</th>
+                            <th width="17%">Tanggal</th>
+                            <th>Kode</th>
+                            <th width="6%">Jumlah</th>
                             <th>Harga</th>
                             <th>Disc</th>
                             <th>Bayar</th>
                             <th>Diterima</th>
-                            <th>Kasir</th>
                             <th>Detail</th>
                         </thead>
                         <tbody>
@@ -88,7 +87,6 @@ Daftar Transaksi Penjualan
                 {data: 'discount'},
                 {data: 'bayar'},
                 {data: 'diterima'},
-                {data: 'id_user'},
                 {data: 'action'},
             ]
         })

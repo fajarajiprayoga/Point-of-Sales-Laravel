@@ -27,6 +27,9 @@ class SellingController extends Controller
             ->editColumn('created_at', function ($sellings) {
                 return tanggal_indonesia($sellings->created_at, false);
             })
+            ->editColumn('id_selling', function ($sellings) {
+                return tambah_nol_didepan($sellings->id_selling, 6);
+            })
             ->editColumn('price_total', function ($sellings) {
                 return "Rp. " . format_uang($sellings->price_total);
             })
@@ -35,6 +38,9 @@ class SellingController extends Controller
             })
             ->editColumn('diterima', function ($sellings) {
                 return "Rp. " . format_uang($sellings->diterima);
+            })
+            ->editColumn('discount', function ($sellings) {
+                return $sellings->discount . "%";
             })
             ->addColumn('action', function ($sellings) {
                 return '

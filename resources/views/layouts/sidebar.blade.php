@@ -93,7 +93,7 @@
           </li> 
           <li class="nav-header">REPORT</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('laporan.index') }}" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
               <p>Laporan</p>
             </a>
